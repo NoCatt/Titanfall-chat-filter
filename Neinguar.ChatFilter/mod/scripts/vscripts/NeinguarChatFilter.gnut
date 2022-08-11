@@ -1,12 +1,20 @@
 global function NeinguarChatFilter_Init
 
 array<string> Banned_words = split(GetConVarString("words"), ",")
-bool shouldBlock = GetConVarBool("Block")
-bool shouldInform = GetConVarBool("ShouldInformPlayer")
+bool shouldBlock = Nein_ConVarBool("Block")
+bool shouldInform = Nein_ConVarBool("ShouldInformPlayer")
 string ResponseOnBlock = GetConVarString("ResponseOnBlock")
-bool ShouldShamePlayer = GetConVarBool("ShouldShameUnfriendlyPlayers")
+bool ShouldShamePlayer = Nein_ConVarBool("ShouldShameUnfriendlyPlayers")
 string ShameMessage = GetConVarString("MessageToShamePlayer")
-string ResponseOnReplace = GetConVatString("ResponseOnReplace")
+string ResponseOnReplace = GetConVarString("ResponseOnReplace")
+
+bool function Nein_ConVarBool(string ConVarName){
+    if(GetConVarString(ConVarName)=="true")
+        return true
+    if(GetConVarString(ConVarName)=="false")
+        return false
+    return false
+}
 
 void function NeinguarChatFilter_Init() {
     AddCallback_OnReceivedSayTextMessage(MyChatFilter)

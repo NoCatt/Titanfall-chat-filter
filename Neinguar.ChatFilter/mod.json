@@ -12,11 +12,11 @@
         },
         {
             "Name": "Block",
-            "DeafaultValue": false
+            "DeafaultValue": "false"
         },
         {
             "Name": "ShouldInformPlayer",
-            "DeafaultValue": false
+            "DeafaultValue": "false"
         },
         {
             "Name": "ResponseOnBlock",
@@ -28,7 +28,7 @@
         },
         {
             "Name":"ShouldShameUnfriendlyPlayers",
-            "DeafaultValue": false
+            "DeafaultValue": "false"
         },
         {
             "Name": "MessageToShamePlayer",
