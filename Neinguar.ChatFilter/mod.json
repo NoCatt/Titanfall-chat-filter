@@ -1,0 +1,47 @@
+{
+    "Name": "Neinguar.ChatFilter",
+    "Description":"Removes messages with select words, or hides them in the message",
+    "LoadPriority": 0,
+    "RequiredOnClient": false,
+    "Version": "1.0.0",
+
+        "ConVars":[
+        {
+            "Name": "words",
+            "DeafaultValue": "Based,Ratio,Hard,Based"
+        },
+        {
+            "Name": "Block",
+            "DeafaultValue": false
+        },
+        {
+            "Name": "ResponseOnBlock",
+            "DeafaultValue": "Your message contains offensive speach and was not send to the chat"
+        },
+
+        {
+            "Name": "ShouldInformPlayer",
+            "DeafaultValue": false
+        },
+        {
+            "Name":"ShouldShameUnfriendlyPlayers",
+            "DeafaultValue": false
+        },
+        {
+            "Name": "MessageToShamePlayer",
+            "DeafaultValue": "I am really bad at this Game but my mom doesnt buy me a new one"
+
+        }
+
+       ],
+        "Scripts":[
+            {
+            "Path": "NeinguarChatFilter.nut",
+            "RunOn":"Server && MP",
+            "ServerCallback":{
+                "After": "NeinguarChatFilter_Init"
+                }
+            }
+        ]
+
+    }
