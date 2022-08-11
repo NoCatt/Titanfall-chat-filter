@@ -15,13 +15,16 @@
             "DeafaultValue": false
         },
         {
+            "Name": "ShouldInformPlayer",
+            "DeafaultValue": false
+        },
+        {
             "Name": "ResponseOnBlock",
             "DeafaultValue": "Your message contains offensive speach and was not send to the chat"
         },
-
         {
-            "Name": "ShouldInformPlayer",
-            "DeafaultValue": false
+            "Name": "ResponseOnReplace",
+            "DeafaultValue": "Your message contains offensive speach and was altered"
         },
         {
             "Name":"ShouldShameUnfriendlyPlayers",
@@ -30,7 +33,6 @@
         {
             "Name": "MessageToShamePlayer",
             "DeafaultValue": "I am really bad at this Game but my mom doesnt buy me a new one"
-
         }
 
        ],
