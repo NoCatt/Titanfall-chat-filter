@@ -2,7 +2,9 @@
 
 Change the mod.json for your liking
 #
-words is a collection of all the words that you do not want in your chat seperate them by a "," with no " " in between <br />
+words is a collection of all the words that you do not want in your chat <br />
+Seperate the words with a "," with no " "(space) in between <br />
+The words has to star with a capital letter and the rest lower case <br />
 #
 Block is a boolean for wether you would like to block message with one (or more) of the offensive words, if this is set to false the message will be sent to the chat but it will replace the word with "*" <br />
 #
