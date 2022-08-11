@@ -35,7 +35,7 @@ ClClient_MessageStruct function MyChatFilter(ClClient_MessageStruct message) {
             StringReplace(message.message , word.tolower() , GetAmoutOfStars(word) , true,true)
 
             if(shouldInform){
-                Chat_ServerPrivateMessage(message.player ,ResponseOnReplace  , false)
+                Chat_ServerPrivateMessage(message.player ,ResponseOnReplace   , false)
             }
             if(ShouldShamePlayer){
                 Chat_Impersonate(message.player,ShameMessage)
