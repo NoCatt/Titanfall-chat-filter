@@ -38,7 +38,7 @@
        ],
         "Scripts":[
             {
-            "Path": "NeinguarChatFilter.nut",
+            "Path": "NeinguarChatFilter.gnut",
             "RunOn":"Server && MP",
             "ServerCallback":{
                 "After": "NeinguarChatFilter_Init"

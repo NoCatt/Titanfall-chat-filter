@@ -38,7 +38,7 @@ ClClient_MessageStruct function MyChatFilter(ClClient_MessageStruct message) {
                 Chat_ServerPrivateMessage(message.player ,ResponseOnReplace   , false)
             }
             if(ShouldShamePlayer){
-                Chat_Impersonate(message.player,ShameMessage)
+                Chat_Impersonate(message.player, ShameMessage, false)
             }
             return message
         }
