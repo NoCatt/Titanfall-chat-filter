@@ -1,7 +1,7 @@
 {
     "Name": "Neinguar.ChatFilter",
     "Description":"Removes messages with select words, or hides them in the message",
-    "LoadPriority": 0,
+    "LoadPriority": 2,
     "RequiredOnClient": false,
     "Version": "1.0.0",
 
