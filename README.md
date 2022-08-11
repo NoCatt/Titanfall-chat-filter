@@ -8,7 +8,7 @@ The words has to star with a capital letter and the rest lower case <br />
 #
 Block is a boolean for wether you would like to block message with one (or more) of the offensive words, if this is set to false the message will be sent to the chat but it will replace the word with "*" <br />
 #
-ShouldInformPlayer is a boolean that determins if the player who has send the message with an offensive word gets notified of the block/alteration of his message <br />
+ShouldInformPlayer is a boolean that determins if the player who has send the message with an offensive word gets notified of the block/alteration of their message <br />
 #
 ResponseOnBlock is the message the player will recive if Block is true and ShouldInformPlayer is true <br />
 #
