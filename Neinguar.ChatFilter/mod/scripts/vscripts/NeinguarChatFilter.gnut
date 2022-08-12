@@ -15,8 +15,8 @@ string function GetAmoutOfStars(string word) {
 string function GetString(string convar){
     return GetConVarString(convar)
 }
-bool function GetBool(strinf convar){
-    return GetConVarBool(convar)
+bool function GetBool(string convar){
+    return GetConVarBool(convar) 
 }
 array<string> function GetArray(string convar){
     return split( GetConVarString(convar) ,"," )
@@ -34,33 +34,25 @@ string ShameMessage = GetString("MessageToShamePlayer")
 string ResponseOnReplace = GetString("ResponseOnReplace")
 
 ClClient_MessageStruct function MyChatFilter(ClClient_MessageStruct message) {
+    string LowerMessage  = message.message.tolower()
     for(string word in Banned_words)
     {
-        //Please have the words start with the fist letter capitalized in the convar
-        if(message.message.find(word)==null||message.message.find(word.toupper())==null||message.message.find(word.tolower())==null)
-        {
+        if( LowerMessage.find( word.tolower() ) == -1) 
             return message
-        }
+        
         if(shouldBlock){
             message.shouldBlock = true
-            if(shouldInform){
+            if(shouldInform)
                 Chat_ServerPrivateMessage(message.player , ResponseOnBlock , false)
-            }
-            if(ShouldShamePlayer){
-                Chat_Impersonate(message.player,ShameMessage)
-            }
+            if(ShouldShamePlayer)
+                Chat_Impersonate(message.player,ShameMessage,false)
             return message
         } else{
-            StringReplace(message.message , word , GetAmoutOfStars(word) , true,true)
-            StringReplace(message.message , word.toupper() , GetAmoutOfStars(word) , true,true)
-            StringReplace(message.message , word.tolower() , GetAmoutOfStars(word) , true,true)
-
-            if(shouldInform){
+            message.message = StringReplace(LowerMessage, word.tolower(), GetAmoutOfStars(word), true, true)
+            if(shouldInform)
                 Chat_ServerPrivateMessage(message.player ,ResponseOnReplace   , false)
-            }
-            if(ShouldShamePlayer){
+            if(ShouldShamePlayer)
                 Chat_Impersonate(message.player, ShameMessage, false)
-            }
             return message
         }
     return message
