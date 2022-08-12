@@ -1,13 +1,12 @@
 global function NeinguarChatFilter_Init
 
-string BadWordsString = GetConVarString("words")
-array<string> Banned_words = split(BadWordsString , ",")
-bool shouldBlock = GetConVarBool("Block")
-bool shouldInform = GetConVarBool("ShouldInformPlayer")
-string ResponseOnBlock = GetConVarString("ResponseOnBlock")
-bool ShouldShamePlayer = GetConVarBool("ShouldShameUnfriendlyPlayers")
-string ShameMessage = GetConVarString("MessageToShamePlayer")
-string ResponseOnReplace = GetConVarString("ResponseOnReplace")
+array<string> Banned_words = GetArray("words")
+bool shouldBlock = GetBool("Block")
+bool shouldInform = GetBool("ShouldInformPlayer")
+string ResponseOnBlock = GetString("ResponseOnBlock")
+bool ShouldShamePlayer = GetBool("ShouldShameUnfriendlyPlayers")
+string ShameMessage = GetString("MessageToShamePlayer")
+string ResponseOnReplace = GetString("ResponseOnReplace")
 
 void function NeinguarChatFilter_Init() {
     AddCallback_OnReceivedSayTextMessage(MyChatFilter)
@@ -53,4 +52,17 @@ string function GetAmoutOfStars(string word) {
      reply + "*"
     }
     return reply
+}
+
+string function GetString(string convar){
+    return GetConVarString(convar)
+}
+bool function GetBool(strinf convar){
+    return GetConVarBool(convar)
+}
+array<string> function GetArray(string convar){
+    return split( GetConVarString(convar) ,"," )
+}
+float function GetFloat(string convar){
+    return GetConVarFloat(convar)
 }
