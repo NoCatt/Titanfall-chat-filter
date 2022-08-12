@@ -1,5 +1,30 @@
 global function NeinguarChatFilter_Init
 
+void function NeinguarChatFilter_Init() {
+    AddCallback_OnReceivedSayTextMessage(MyChatFilter)
+}
+
+string function GetAmoutOfStars(string word) {
+    string reply = ""
+    for (int a; a < word.len() ; a++ ) {
+     reply + "*"
+    }
+    return reply
+}
+
+string function GetString(string convar){
+    return GetConVarString(convar)
+}
+bool function GetBool(strinf convar){
+    return GetConVarBool(convar)
+}
+array<string> function GetArray(string convar){
+    return split( GetConVarString(convar) ,"," )
+}
+float function GetFloat(string convar){
+    return GetConVarFloat(convar)
+}
+
 array<string> Banned_words = GetArray("words")
 bool shouldBlock = GetBool("Block")
 bool shouldInform = GetBool("ShouldInformPlayer")
@@ -7,10 +32,6 @@ string ResponseOnBlock = GetString("ResponseOnBlock")
 bool ShouldShamePlayer = GetBool("ShouldShameUnfriendlyPlayers")
 string ShameMessage = GetString("MessageToShamePlayer")
 string ResponseOnReplace = GetString("ResponseOnReplace")
-
-void function NeinguarChatFilter_Init() {
-    AddCallback_OnReceivedSayTextMessage(MyChatFilter)
-}
 
 ClClient_MessageStruct function MyChatFilter(ClClient_MessageStruct message) {
     for(string word in Banned_words)
@@ -44,25 +65,4 @@ ClClient_MessageStruct function MyChatFilter(ClClient_MessageStruct message) {
         }
     return message
     }
-}
-
-string function GetAmoutOfStars(string word) {
-    string reply = ""
-    for (int a; a < word.len() ; a++ ) {
-     reply + "*"
-    }
-    return reply
-}
-
-string function GetString(string convar){
-    return GetConVarString(convar)
-}
-bool function GetBool(strinf convar){
-    return GetConVarBool(convar)
-}
-array<string> function GetArray(string convar){
-    return split( GetConVarString(convar) ,"," )
-}
-float function GetFloat(string convar){
-    return GetConVarFloat(convar)
 }
