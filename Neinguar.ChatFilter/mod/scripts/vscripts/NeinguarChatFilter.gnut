@@ -1,5 +1,14 @@
 global function NeinguarChatFilter_Init
 
+const array<string> Banned_words = ["Fuck","Faggot","Retard"]
+const bool shouldBlock = false
+const bool shouldInform = true
+const string ResponseOnBlock = "Your message contains offensive speach and was not send to the chat"
+const bool ShouldShamePlayer = true
+const string ShameMessage = "I am really bad at this Game but my mom doesnt buy me a new one"
+const string ResponseOnReplace = "Your message contains offensive speach and was altered"
+
+
 void function NeinguarChatFilter_Init() {
     AddCallback_OnReceivedSayTextMessage(MyChatFilter)
 }
@@ -11,27 +20,6 @@ string function GetAmoutOfStars(string word) {
     }
     return reply
 }
-
-string function GetString(string convar){
-    return GetConVarString(convar)
-}
-bool function GetBool(string convar){
-    return GetConVarBool(convar) 
-}
-array<string> function GetArray(string convar){
-    return split( GetConVarString(convar) ,"," )
-}
-float function GetFloat(string convar){
-    return GetConVarFloat(convar)
-}
-
-array<string> Banned_words = GetArray("words")
-bool shouldBlock = GetBool("Block")
-bool shouldInform = GetBool("ShouldInformPlayer")
-string ResponseOnBlock = GetString("ResponseOnBlock")
-bool ShouldShamePlayer = GetBool("ShouldShameUnfriendlyPlayers")
-string ShameMessage = GetString("MessageToShamePlayer")
-string ResponseOnReplace = GetString("ResponseOnReplace")
 
 ClClient_MessageStruct function MyChatFilter(ClClient_MessageStruct message) {
     string LowerMessage  = message.message.tolower()
